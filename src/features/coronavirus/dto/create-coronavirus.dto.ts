@@ -7,7 +7,7 @@ import {
   IsEnum,
   IsInt,
   IsNotEmpty,
-  ValidateNested,
+  IsString,
 } from 'class-validator';
 
 export enum UFEnum {
@@ -50,7 +50,7 @@ export class CreateCoronavirusDto {
     type: 'string',
     description: 'UF',
   })
-  @IsEnum(UFEnum)
+  @IsString()
   public uf: string;
 
   @ApiProperty({

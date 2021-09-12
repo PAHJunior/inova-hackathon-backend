@@ -1,17 +1,14 @@
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import {
   Controller,
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
 } from '@nestjs/common';
 import { CoronavirusService } from './coronavirus.service';
 import { CreateCoronavirusDto } from './dto/create-coronavirus.dto';
-import { TransfersCoronavirusDto } from './dto/transfers-coronavirus.dto';
 
 @ApiTags('Coronavírus')
 @Controller('coronavirus')

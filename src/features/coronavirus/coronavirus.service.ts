@@ -17,11 +17,6 @@ export class CoronavirusService {
   }
 
   create(createCoronavirusDto: CreateCoronavirusDto[]) {
-    try {
-      return this.coronavirusModel.create(createCoronavirusDto)
-    } catch (error) {
-      console.error(error)
-      return error
-    }
+    return this.coronavirusModel.create(createCoronavirusDto)
   }
 }
