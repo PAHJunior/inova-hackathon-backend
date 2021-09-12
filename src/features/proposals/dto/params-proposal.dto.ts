@@ -53,5 +53,5 @@ export class ParamsProposalDto {
     description: 'Categories of proposal',
   })
   @IsArray()
-  public categories: [string];
+  public categories: string;
 }

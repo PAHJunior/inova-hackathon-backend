@@ -20,7 +20,7 @@ export class ProposalsService {
       description: { $regex: new RegExp(params.description), $options: 'i' },
       uf: { $regex: new RegExp(params.uf), $options: 'i' },
       cidade: { $regex: new RegExp(params.cidade), $options: 'i' },
-      [params.categories? 'categories' : null] : { "$in" : params.categories},
+      [params.categories? 'categories' : null] : { "$in" : params.categories.split(',')},
     }
     return this.proposalModel.find(query)
   }
