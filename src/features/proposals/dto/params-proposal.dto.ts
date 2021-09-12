@@ -49,8 +49,9 @@ export class ParamsProposalDto {
 
   @ApiProperty({
     required: false,
-    type: 'array',
+    type: 'string',
     description: 'Categories of proposal',
+    example: 'Coronavirus,Economia'
   })
   @IsArray()
   public categories: string;
