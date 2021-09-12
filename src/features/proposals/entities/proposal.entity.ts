@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { ProposalCategoriesDto } from '../dto/proposal-categories.dto';
 
 export type ProposalDocument = Proposal & Document;
 @Schema()
@@ -29,7 +28,7 @@ export class Proposal {
   @Prop({
     description: 'Categories of proposal',
   })
-  public categories: ProposalCategoriesDto[];
+  public categories: [string];
 
   @Prop({
     description: 'Date of proposal',

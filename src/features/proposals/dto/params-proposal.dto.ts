@@ -8,7 +8,7 @@ import {
   ValidateNested,
 } from 'class-validator';
 
-export class CreateProposalDto {
+export class ParamsProposalDto {
   @ApiProperty({
     type: 'string',
     description: 'Title of proposal',
@@ -24,22 +24,6 @@ export class CreateProposalDto {
   @IsNotEmpty()
   @IsString()
   public description: string;
-
-  @ApiProperty({
-    type: 'string',
-    description: 'Author of proposal',
-  })
-  @IsString()
-  public author: string;
-
-  @ApiProperty({
-    type: 'string',
-    description: 'Date of proposal',
-  })
-  @IsNotEmpty()
-  @IsDate()
-  @Transform(({ value }) => new Date(value))
-  public dhProposal: Date;
 
   @ApiProperty({
     type: 'string',
