@@ -18,6 +18,8 @@ export class ProposalsService {
       title: { $regex: new RegExp(params.title), $options: 'i' },
       author: { $regex: new RegExp(params.author), $options: 'i' },
       description: { $regex: new RegExp(params.description), $options: 'i' },
+      uf: { $regex: new RegExp(params.uf), $options: 'i' },
+      cidade: { $regex: new RegExp(params.cidade), $options: 'i' },
       [params.categories? 'categories' : null] : { "$in" : params.categories},
     }
     return this.proposalModel.find(query)
