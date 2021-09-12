@@ -10,6 +10,7 @@ export class ProposalsController {
   constructor(private readonly proposalsService: ProposalsService) {}
 
   @ApiOperation({summary: 'Cadastro de propostas' })
+  @Post()
   create(@Body('createProposal') createProposal: CreateProposalDto) {
     return this.proposalsService.create(createProposal);
   }

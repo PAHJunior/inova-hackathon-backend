@@ -28,6 +28,7 @@ export class CoronavirusController {
   }
 
   @ApiOperation({summary: 'Cadastro de transferencia para a cidade' })
+  @Post('transfers')
   create(@Body() createCoronavirus: CreateCoronavirusDto) {
     return this.coronavirusService.create(createCoronavirus);
   }
