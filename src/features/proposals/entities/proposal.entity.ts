@@ -39,6 +39,16 @@ export class Proposal {
     description: 'Date of created of document',
   })
   public dhCreate: Date = new Date();
+
+  @Prop({
+    description: 'UF'
+  })
+  public uf: string;
+
+  @Prop({
+    description: 'Nome da cidade',
+  })
+  public cidade: string;
 }
 
 export const ProposalSchema = SchemaFactory.createForClass(Proposal);

@@ -7,7 +7,7 @@ export class Coronavirus {
   @Prop({
     required: true,
   })
-  municipio: number;
+  cidade: string;
 
   @Prop({
     required: true,

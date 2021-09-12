@@ -42,22 +42,22 @@ export enum UFEnum {
 export class CreateCoronavirusDto {
   @ApiProperty({
     type: 'string',
-    description: 'Codigo IBGE do municipio',
+    description: 'Nome da cidade',
   })
-  public municipio: number;
+  public cidade: string;
 
   @ApiProperty({
     type: 'string',
     description: 'UF',
   })
   @IsString()
+  @IsEnum(UFEnum)
   public uf: string;
 
   @ApiProperty({
-    type: 'string',
-    description: 'UF',
+    type: 'number',
+    description: 'Price transfer',
   })
-  @IsEnum(UFEnum)
   public price: number;
 
 }

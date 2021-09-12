@@ -26,10 +26,10 @@ export class CoronavirusController {
   findOne(@Param('id') id: string) {
     return this.coronavirusService.findOne(id);
   }
-    
-  @ApiOperation({summary: 'Cadastro de transferencia para o municipio' })
+
+  @ApiOperation({summary: 'Cadastro de transferencia para a cidade' })
   @Post('transfers')
-  create(@Body('createCoronavirus') createCoronavirus: CreateCoronavirusDto[]) {
+  create(@Body() createCoronavirus: CreateCoronavirusDto) {
     return this.coronavirusService.create(createCoronavirus);
   }
 }

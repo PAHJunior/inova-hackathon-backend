@@ -9,19 +9,14 @@ import { ParamsProposalDto } from './dto/params-proposal.dto';
 export class ProposalsService {
   constructor(@InjectModel(Proposal.name) private proposalModel: Model<CreateProposalDto>) {}
 
-  create(createProposal: CreateProposalDto[]) {
+  create(createProposal: CreateProposalDto) {
     return this.proposalModel.create(createProposal)
   }
 
   findAll(params: ParamsProposalDto) {
-    let query = {}
-    if (params.categories) {
-      query = {
-        ...query,
-        categories: { "$in" : params.categories}
-      }
+    let query = {
+      [params.categories? 'categories' : null] : { "$in" : params.categories}
     }
-
     return this.proposalModel.find(query)
   }
 

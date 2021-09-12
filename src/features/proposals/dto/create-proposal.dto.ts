@@ -3,10 +3,12 @@ import { Transform } from 'class-transformer';
 import {
   IsArray,
   IsDate,
+  IsEnum,
   IsNotEmpty,
   IsString,
   ValidateNested,
 } from 'class-validator';
+import { UFEnum } from 'src/features/coronavirus/dto/create-coronavirus.dto';
 
 export class CreateProposalDto {
   @ApiProperty({
@@ -31,6 +33,23 @@ export class CreateProposalDto {
   })
   @IsString()
   public author: string;
+
+  @ApiProperty({
+    required: false,
+    type: 'string',
+    description: 'Uf',
+  })
+  @IsString()
+  @IsEnum(UFEnum)
+  public uf: string;
+
+  @ApiProperty({
+    required: false,
+    type: 'string',
+    description: 'Nome da ciade cidade',
+  })
+  @IsString()
+  public cidade: string;
 
   @ApiProperty({
     type: 'string',

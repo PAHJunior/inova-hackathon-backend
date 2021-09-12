@@ -16,7 +16,7 @@ export class CoronavirusService {
     return this.coronavirusModel.findById(id);
   }
 
-  create(createCoronavirusDto: CreateCoronavirusDto[]) {
+  create(createCoronavirusDto: CreateCoronavirusDto) {
     return this.coronavirusModel.create(createCoronavirusDto)
   }
 }
