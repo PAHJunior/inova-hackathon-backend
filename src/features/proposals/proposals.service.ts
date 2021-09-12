@@ -15,7 +15,10 @@ export class ProposalsService {
 
   findAll(params: ParamsProposalDto) {
     let query = {
-      [params.categories? 'categories' : null] : { "$in" : params.categories}
+      title: { $regex: new RegExp(params.title), $options: 'i' },
+      author: { $regex: new RegExp(params.author), $options: 'i' },
+      description: { $regex: new RegExp(params.description), $options: 'i' },
+      [params.categories? 'categories' : null] : { "$in" : params.categories},
     }
     return this.proposalModel.find(query)
   }
