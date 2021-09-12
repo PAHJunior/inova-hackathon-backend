@@ -1,3 +1,5 @@
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+
 import {
   Controller,
   Get,
@@ -9,37 +11,28 @@ import {
 } from '@nestjs/common';
 import { CoronavirusService } from './coronavirus.service';
 import { CreateCoronavirusDto } from './dto/create-coronavirus.dto';
-import { UpdateCoronavirusDto } from './dto/update-coronavirus.dto';
+import { TransfersCoronavirusDto } from './dto/transfers-coronavirus.dto';
 
+@ApiTags('Coronavírus')
 @Controller('coronavirus')
 export class CoronavirusController {
   constructor(private readonly coronavirusService: CoronavirusService) {}
 
-  @Post()
-  create(@Body() createCoronavirusDto: CreateCoronavirusDto) {
-    return this.coronavirusService.create(createCoronavirusDto);
-  }
-
-  @Get()
+  @ApiOperation({summary: 'Consulta de transferências mensal das despesas do Poder Executivo Federal pela classificação funcional programática' })
+  @Get('transfers')
   findAll() {
     return this.coronavirusService.findAll();
   }
-
-  @Get(':id')
+  
+  @ApiOperation({summary: 'Consulta de movimentação líquida mensal das despesas do Poder Executivo Federal pela classificação funcional programática' })
+  @Get('transfers/:id')
   findOne(@Param('id') id: string) {
-    return this.coronavirusService.findOne(+id);
+    return this.coronavirusService.findOne(id);
   }
-
-  @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateCoronavirusDto: UpdateCoronavirusDto,
-  ) {
-    return this.coronavirusService.update(+id, updateCoronavirusDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.coronavirusService.remove(+id);
+    
+  @ApiOperation({summary: 'Cadastro de transferencia para o municipio' })
+  @Post('transfers')
+  create(@Body('createCoronavirus') createCoronavirus: CreateCoronavirusDto[]) {
+    return this.coronavirusService.create(createCoronavirus);
   }
 }
