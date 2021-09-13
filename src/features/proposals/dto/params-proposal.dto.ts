@@ -1,11 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Transform } from 'class-transformer';
 import {
   IsArray,
-  IsDate,
-  IsNotEmpty,
   IsString,
-  ValidateNested,
 } from 'class-validator';
 
 export class ParamsProposalDto {
@@ -20,6 +16,7 @@ export class ParamsProposalDto {
   @ApiProperty({
     type: 'string',
     description: 'Author of proposal',
+    required: false,
   })
   @IsString()
   public author: string;

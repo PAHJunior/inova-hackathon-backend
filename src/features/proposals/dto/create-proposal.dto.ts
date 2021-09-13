@@ -6,7 +6,6 @@ import {
   IsEnum,
   IsNotEmpty,
   IsString,
-  ValidateNested,
 } from 'class-validator';
 import { UFEnum } from 'src/features/coronavirus/dto/create-coronavirus.dto';
 

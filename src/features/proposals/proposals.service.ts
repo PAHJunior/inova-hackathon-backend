@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProposalDto } from './dto/create-proposal.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Proposal, ProposalDocument } from './entities/proposal.entity';
+import { Proposal } from './entities/proposal.entity';
 import { Model } from 'mongoose';
 import { ParamsProposalDto } from './dto/params-proposal.dto';
 
